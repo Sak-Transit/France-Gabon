@@ -272,15 +272,17 @@ a, button { cursor: pointer; }
   max-width: 600px;
   height: 400px;
   margin: auto;
-  position: relative;
+  padding: 1px;
+  margin-top: -2%;
   border-radius: 8px;
-
-  background-size: 100% auto;      /* ✅ Largeur = 100% du container, hauteur auto */
-  background-position: center top;
-  background-repeat: no-repeat;
-	  background-size: 100% 400px;
-
+  background-image: url('sakimg.jpg');
+  background-size: 100% 400px;     /* ✅ ICI → largeur = 100% du conteneur, hauteur fixe à 400px */
+  background-position: center;     /* Centre l’image dans le bloc */
+  background-repeat: no-repeat;    /* Évite que l’image ne se répète */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24);
+  position: relative;
 }
+
 
 
 	  .bg-img {
