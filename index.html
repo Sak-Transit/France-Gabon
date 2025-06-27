@@ -280,8 +280,9 @@ a, button { cursor: pointer; }
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24);
       position: relative;
       background-image: url('sakimg.jpg');
-      background-size: cover;
-      background-position: center;
+  background-size: 300px 200px;        /* adapte l’image à la taille de l’écran */
+  background-position: center;   /* centre l’image */
+  background-repeat: no-repeat;  /* évite la répétition */
     }
 
     .video-slider {
