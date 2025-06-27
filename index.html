@@ -267,23 +267,29 @@ a, button { cursor: pointer; }
   <title>Slider SAK-Transit</title>
   <style>
 
-    .container {
-      width: 40%;
-      max-width: 600px;
-      height: 400px;
-      max-height: 850px;
-      margin: auto;
-      padding: 1px;
-      margin-top: -2%;
-      border-radius: 8px;
-      background: rgba(0, 0, 0, 0.05);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.24);
-      position: relative;
-      background-image: url('sakimg.jpg');
-  background-size: 100% 50%;     /* adapte l’image à la taille de l’écran */
-  background-position: center;   /* centre l’image */
-  background-repeat: no-repeat;  /* évite la répétition */
-    }
+  .container {
+  width: 40%;
+  max-width: 600px;
+  height: 400px;
+  margin: auto;
+  position: relative;
+  border-radius: 8px;
+  background-image: url('sakimg.jpg');
+  background-size: 100% auto;      /* ✅ Largeur = 100% du container, hauteur auto */
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+
+	  .bg-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  z-index: -1;
+}
+	  
 
     .video-slider {
       position: relative;
@@ -543,7 +549,7 @@ a, button { cursor: pointer; }
 </head>
 <body>
 
- <div class="container">
+ <div class="container"><img src="sakimg.jpg" class="bg-img">
   <div class="video-slider">
     <button id="prev-btn">❮</button>
     <div class="slides">
