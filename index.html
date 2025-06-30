@@ -419,6 +419,23 @@ a, button { cursor: pointer; }
   transform: scale(1.2);
 }
 
+.marquee-css {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: transparent;
+}
+
+.marquee-css span {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll-left 10s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
 
       
 
@@ -611,8 +628,10 @@ a, button { cursor: pointer; }
           <div class="caption-slider">
 		  
 		  <div class="caption-slide">
-			  <marquee behavior="alternate" scrollamount="5" scrolldelay="100" loop="3" direction="right">SAK Transit l acheminement de vos sacs.
-		  </marquee></div>
+		<div class="marquee-css">
+  <span>SAK Transit l’acheminement de vos sacs.</span>
+</div>
+</div>
             <div class="caption-slide active">SAK Transit un prix qui séduit, une éfficacité qui rassure.</div>
 		  
           </div>
