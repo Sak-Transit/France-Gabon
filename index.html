@@ -423,21 +423,19 @@ a, button { cursor: pointer; }
   width: 100%;
   overflow: hidden;
   position: relative;
-  background: transparent;
 }
 
 .marquee-css span {
   display: inline-block;
   white-space: nowrap;
-  animation: scroll-left 10s linear infinite;
+  animation: defilement 15s linear infinite;
+  padding-left: 100%;
 }
 
-@keyframes scroll-left {
-  0% { transform: translateX(100%); }
+@keyframes defilement {
+  0% { transform: translateX(0); }
   100% { transform: translateX(-100%); }
 }
-
-      
 
       
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -577,48 +575,67 @@ a, button { cursor: pointer; }
     <div class="slides">
 
       <!-- Video 1 -->
-      <div class="video-container">
-        <video src="vid001.mp4" controls muted autoplay><img src="sakimg.jpg" class="bg-img"></video>
-        <div class="video-caption">
-          <div class="caption-slider">
-                        <div class="caption-slide active">Bienvenue chez SAK Transit <br><br> - Vos colis nos affaires. -</div>
-            <div class="caption-slide"> SAK Transit est un choix solide pour votre passerelle logistique entre la France et le Gabon. <br>
-		    </div> 
+ <!-- Video 1 -->
+<div class="video-container">
+  <video src="vid001.mp4" controls muted autoplay><img src="sakimg.jpg" class="bg-img"></video>
+  <div class="video-caption">
+    <div class="caption-slider">
 
-            <div class="caption-slide">Nous simplifions vos démarches d’importation en prenant en charge le transport de colis de toutes tailles <br>
-		    </div>
-<div class="caption-slide">Le dédouanement, l’assistance à l’achat, et la livraison sécurisée jusqu’à destination..</div>
-		  
-		  
-            <div class="caption-slide">Qualité, durabilité et innovation – c’est notre promesse.</div>
-     <div class="caption-slide">SAK-Transit basé à Agondjet Amissa au C H U</div>
-    <div class="caption-slide">Fini les tracas, nous prenons le relais !</div> 
-
-<div class="caption-slide"> Transport express et fiable de France vers le Gabon</div>
-
-		    <div class="caption-slide"> Acheminement de colis de toutes natures, du plus petit au plus volumineux
-
- Solutions d’achats en France avec accompagnement complet</div>
-		  
-    <div class="caption-slide">
-	     Formalités douanières prises en charge, en toute transparence
-
- Livraison rapide à Libreville, Akanda, Owendo et bien plus
-
- Sécurité, suivi et professionnalisme garantis à chaque étape
-</div>
-		  
-    <div class="caption-slide">Chez SAK Transit, l'efficacité est au cœur de nos préoccupations.</div>
-    
-    <div class="caption-slide">SAK Transit, c’est bien plus qu’un service logistique : <br>C’est la tranquillité d’esprit, l’efficacité franco-gabonaise,</div>
-    <div class="caption-slide">Contactez-nous ou visitez nos pages Facebook, TikTok et WhatsApp pour en savoir plus.</div>
-         </div>    
-        </div>
+      <div class="caption-slide active">
+        <div class="marquee-css"><span>Bienvenue chez SAK Transit <br><br> - Vos colis nos affaires. -</span></div>
       </div>
 
+      <div class="caption-slide">
+        <div class="marquee-css"><span>SAK Transit est un choix solide pour votre passerelle logistique entre la France et le Gabon.</span></div>
+      </div>
 
+      <div class="caption-slide">
+        <div class="marquee-css"><span>Nous simplifions vos démarches d’importation en prenant en charge le transport de colis de toutes tailles</span></div>
+      </div>
 
+      <div class="caption-slide">
+        <div class="marquee-css"><span>Le dédouanement, l’assistance à l’achat, et la livraison sécurisée jusqu’à destination..</span></div>
+      </div>
 
+      <div class="caption-slide">
+        <div class="marquee-css"><span>Qualité, durabilité et innovation – c’est notre promesse.</span></div>
+      </div>
+
+      <div class="caption-slide">
+        <div class="marquee-css"><span>SAK-Transit basé à Agondjet Amissa au C H U</span></div>
+      </div>
+
+      <div class="caption-slide">
+        <div class="marquee-css"><span>Fini les tracas, nous prenons le relais !</span></div>
+      </div>
+
+      <div class="caption-slide">
+        <div class="marquee-css"><span>Transport express et fiable de France vers le Gabon</span></div>
+      </div>
+
+      <div class="caption-slide">
+        <div class="marquee-css"><span>Acheminement de colis de toutes natures, du plus petit au plus volumineux<br>Solutions d’achats en France avec accompagnement complet</span></div>
+      </div>
+
+      <div class="caption-slide">
+        <div class="marquee-css"><span>Formalités douanières prises en charge, en toute transparence<br>Livraison rapide à Libreville, Akanda, Owendo et bien plus<br>Suivi et professionnalisme garantis à chaque étape</span></div>
+      </div>
+
+      <div class="caption-slide">
+        <div class="marquee-css"><span>Chez SAK Transit, l'efficacité est au cœur de nos préoccupations.</span></div>
+      </div>
+
+      <div class="caption-slide">
+        <div class="marquee-css"><span>SAK Transit, c’est bien plus qu’un service logistique : <br>C’est la tranquillité d’esprit, l’efficacité franco-gabonaise,</span></div>
+      </div>
+
+      <div class="caption-slide">
+        <div class="marquee-css"><span>Contactez-nous ou visitez nos pages Facebook, TikTok et WhatsApp pour en savoir plus.</span></div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 	    
       <!-- Video 2 -->
