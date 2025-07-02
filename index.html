@@ -934,15 +934,18 @@ slideGroups.forEach(slider => {
   overflow: hidden;
 }
 
-.rb-slide img {
+	.rb-slide img {
+  display: block;
   max-width: 100%;
   max-height: 100%;
   width: auto;
   height: auto;
   object-fit: contain;
-  display: block;
+  margin: auto; /* ➕ Ceci centre horizontalement et verticalement */
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
 }
-
+	
 .rb-caption {
   position: absolute;
   bottom: 8px;
