@@ -942,11 +942,12 @@ slideGroups.forEach(slider => {
 }
 
 .rb-slide img {
- width: 90%;
-  max-height: 90%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ou 'contain' selon le rendu que tu veux */
   display: block;
 }
+
 
   /* ===== Légende ===== */
   .rb-caption {
