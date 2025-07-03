@@ -152,6 +152,25 @@ a, button { cursor: pointer; }
 .musique-btn:hover {
   background-color: #0056b3;
 }
+	#musique-fond {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.musique-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
 
 
     
@@ -265,16 +284,14 @@ a, button { cursor: pointer; }
   }
 }
 </style>
+<script src="https://www.youtube.com/iframe_api"></script>
 
 </head>
 <body>  
   
-	<iframe id="musique-fond" width="10" height="10" src="https://www.youtube.com/embed/p5UkJtBWK0o?si=AgaZ_msF5ZXObmgE" title="YouTube video player" 
-		frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-		referrerpolicy="strict-origin-when-cross-origin" preload="auto" loop allowfullscreen></iframe>
-<button id="stop-musique" class="musique-btn">▶️</button>
-<img src="https://sak-transit.github.io/France-Gabon/img3.png" alt="Sac SAK-Transit" class="image-fond">
-  
+<div id="musique-fond"></div>
+<button id="stop-musique" class="musique-btn" aria-label="Lecture/Pause">▶️</button>
+
 
 
 
@@ -723,37 +740,50 @@ a, button { cursor: pointer; }
 
 
 
-const musiqueFond = document.getElementById('musique-fond');
+let player;
+let musiqueInitiee = false;
 const stopBtn = document.getElementById('stop-musique');
 
-let musiqueInitiee = false;
+// Fonction appelée par l’API YouTube
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('musique-fond', {
+    height: '0',
+    width: '0',
+    videoId: 'p5UkJtBWK0o', // ID YouTube
+    playerVars: {
+      autoplay: 0,
+      controls: 0,
+      loop: 1,
+      modestbranding: 1,
+      rel: 0
+    },
+    events: {
+      'onReady': () => {
+        // Écoute du premier clic pour déclencher la lecture
+        window.addEventListener('click', initMusiqueAuto, { once: true });
+      }
+    }
+  });
+}
 
-// ✅ Démarre la musique dès la première interaction utilisateur
-const initMusiqueAuto = () => {
+function initMusiqueAuto() {
   if (!musiqueInitiee) {
-    musiqueFond.volume = 0.3;
-    musiqueFond.play().then(() => {
-      musiqueInitiee = true;
-      stopBtn.textContent = '⏸';
-    }).catch(err => {
-      console.warn("Lecture automatique bloquée :", err);
-    });
+    player.playVideo();
+    musiqueInitiee = true;
+    stopBtn.textContent = '⏸';
   }
-};
-
-// ⚠️ On écoute le premier clic sur la page pour déclencher la musique si nécessaire
-window.addEventListener('click', initMusiqueAuto, { once: true });
+}
 
 stopBtn.addEventListener('click', () => {
   if (!musiqueInitiee) {
-    initMusiqueAuto(); // démarre si ce n’est pas encore lancé
+    initMusiqueAuto();
   } else {
-    if (musiqueFond.paused) {
-      musiqueFond.play();
-      stopBtn.textContent = '⏸';
-    } else {
-      musiqueFond.pause();
+    if (player.getPlayerState() === YT.PlayerState.PLAYING) {
+      player.pauseVideo();
       stopBtn.textContent = '▶️';
+    } else {
+      player.playVideo();
+      stopBtn.textContent = '⏸';
     }
   }
 });
