@@ -908,7 +908,7 @@ slideGroups.forEach(slider => {
 
 
 <style>
-  /* ===== Conteneur principal ===== */
+  /* ===== Conteneur principal du slider ===== */
   .rb-hslider {
     position: relative;
     margin: 10px auto 0;
@@ -918,36 +918,35 @@ slideGroups.forEach(slider => {
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   /* ===== Piste des slides ===== */
   .rb-track {
     display: flex;
     transition: transform 0.6s ease-in-out;
+    width: 100%;
   }
 
   /* ===== Slide individuel ===== */
+  .rb-slide {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
 
-	.rb-slide {
-  display: flex;
-  justify-content: center;     /* Centre horizontalement */
-  align-items: center;         /* Centre verticalement */
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.rb-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* ou 'contain' selon le rendu que tu veux */
-  display: block;
-}
-
+  .rb-slide img {
+    max-width: 100%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+  }
 
   /* ===== Légende ===== */
   .rb-caption {
@@ -962,7 +961,7 @@ slideGroups.forEach(slider => {
     padding: 4px 0;
   }
 
-  /* ===== Navigation ===== */
+  /* ===== Navigation flèches ===== */
   .rb-nav {
     position: absolute;
     top: 50%;
@@ -996,18 +995,20 @@ slideGroups.forEach(slider => {
       left: 50%;
       transform: translate(-50%, -50%);
       width: 99%;
+      height: 70vh;
       z-index: 9999;
     }
 
     .rb-slide img {
-      width: 90%;
-      margin-left: 1%;
-      height: 100%;
-      object-fit: cover;
+      max-width: 90%;
+      max-height: 80%;
+      object-fit: contain;
+      margin: auto;
       filter: brightness(0.85);
     }
   }
 </style>
+
 
 
 
@@ -1020,15 +1021,21 @@ slideGroups.forEach(slider => {
 <h2>SAK-Transit-SARL <img src="ico.png" alt="Logo" class="logo-center2"></h2>
 <div class="rb-hslider">
   <div class="rb-track">
-    <div class="rb-slide"><img src="https://sak-transit.github.io/France-Gabon/sakimg.jpg" class="bg-img"><div class="rb-caption">Vos colis nos affaires</div></div>
-	   <div class="rb-slide"><img src="https://sak-transit.github.io/France-Gabon/img2.png" class="bg-img"><div class="rb-caption">Sak commisaire de transport agréé</div></div>
-      
+    <div class="rb-slide">
+      <img src="https://sak-transit.github.io/France-Gabon/sakimg.jpg" class="bg-img">
+      <div class="rb-caption">Vos colis nos affaires</div>
+    </div>
+    <div class="rb-slide">
+      <img src="https://sak-transit.github.io/France-Gabon/img2.png" class="bg-img">
+      <div class="rb-caption">Sak commissaire de transport agréé</div>
+    </div>
   </div>
   <div class="rb-nav">
     <button class="rb-btn rb-prev">&#8592;</button>
     <button class="rb-btn rb-next">&#8594;</button>
   </div>
 </div>
+
 
 
 
