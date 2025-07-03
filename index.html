@@ -223,6 +223,15 @@ a, button { cursor: pointer; }
         
         
 <style>
+.image-fond {
+  position: fixed;
+  top: 11%;
+  right: 0;
+  height: 88%;
+  width: 27%;
+  z-index: -2;
+}
+	
 .logo-center {
  height: 60%;
  max-height: 70px;
@@ -245,12 +254,24 @@ a, button { cursor: pointer; }
 .load-btn:hover {
  background-color: rgba(255, 255, 255, 0.2);
 }
+	@media (max-width: 768px) {
+  .image-fond {
+    position: absolute;
+    top: 11%;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 11%);
+    z-index: -2;
+  }
+}
 </style>
 
 </head>
 <body>  
    <audio id="musique-fond" src="mp3001.mp3" preload="auto" loop></audio>
 <button id="stop-musique" class="musique-btn">▶️</button>
+<img src="chemin/vers/ton-image.jpg" alt="Sac SAK-Transit" class="image-fond">
+  
 
 
 
