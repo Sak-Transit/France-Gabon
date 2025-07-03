@@ -8,7 +8,13 @@
 <link rel="icon" href="ico.png" type="image/png">
 <style> @import url('https://fonts.googleapis.com/css2?family=Papyrus&display=swap'); 
 /* ✅ Style général */ 
-body { font-family: 'Papyrus', sans-serif; text-align: center; background-color: rgba(0, 0, 0, 0.2); color: #642EFE; font-weight: bold; } 
+body { font-family: 'Papyrus', sans-serif; text-align: center; background-color: rgba(0, 0, 0, 0.2); color: #642EFE; font-weight: bold;
+     background-image: url("img2.jpg"); 
+	      background-repeat: no-repeat;      /* Empêche la répétition */
+  background-size: cover;            /* Couvre tout l'élément */
+  background-position: center;       /* Centre l'image */
+  background-attachment: fixed; 
+     } 
 
 /* ✅ Correction du positionnement des drapeaux sur PC */ 
 .flag-left, .flag-right { height: 60px; width: auto; border-radius: 8px; position: absolute; } 
