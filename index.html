@@ -745,53 +745,46 @@ a, button { cursor: pointer; }
 
 
 
-let player;
-let musiqueInitiee = false;
+
+
+const musiqueFond = document.getElementById('musique-fond');
 const stopBtn = document.getElementById('stop-musique');
 
-// Fonction appelée par l’API YouTube
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('musique-fond', {
-    height: '0',
-    width: '0',
-    videoId: 'CvBfHwUxHIk', // ID YouTube
-    playerVars: {
-      autoplay: 0,
-      controls: 0,
-      loop: 1,
-      modestbranding: 1,
-      rel: 0
-    },
-    events: {
-      'onReady': () => {
-        // Écoute du premier clic pour déclencher la lecture
-        window.addEventListener('click', initMusiqueAuto, { once: true });
-      }
-    }
-  });
-}
+let musiqueInitiee = false;
 
-function initMusiqueAuto() {
+// ✅ Démarre la musique dès la première interaction utilisateur
+const initMusiqueAuto = () => {
   if (!musiqueInitiee) {
-    player.playVideo();
-    musiqueInitiee = true;
-    stopBtn.textContent = '⏸';
+    musiqueFond.volume = 0.3;
+    musiqueFond.play().then(() => {
+      musiqueInitiee = true;
+      stopBtn.textContent = '⏸';
+    }).catch(err => {
+      console.warn("Lecture automatique bloquée :", err);
+    });
   }
-}
+};
+
+// ⚠️ On écoute le premier clic sur la page pour déclencher la musique si nécessaire
+window.addEventListener('click', initMusiqueAuto, { once: true });
 
 stopBtn.addEventListener('click', () => {
   if (!musiqueInitiee) {
-    initMusiqueAuto();
+    initMusiqueAuto(); // démarre si ce n’est pas encore lancé
   } else {
-    if (player.getPlayerState() === YT.PlayerState.PLAYING) {
-      player.pauseVideo();
-      stopBtn.textContent = '▶️';
-    } else {
-      player.playVideo();
+    if (musiqueFond.paused) {
+      musiqueFond.play();
       stopBtn.textContent = '⏸';
+    } else {
+      musiqueFond.pause();
+      stopBtn.textContent = '▶️';
     }
   }
 });
+
+
+
+	      
 
 
      const slideGroups = document.querySelectorAll('.caption-slider');
