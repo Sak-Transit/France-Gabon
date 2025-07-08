@@ -239,6 +239,14 @@ a, button { cursor: pointer; }
   width: 27.9%;
   z-index: -2;
 }
+	.full-screen {
+      background-image: url('fullscreen.png'); /* Remplace par le chemin réel */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100vw;
+      height: 100vh; z-index:-2;
+    }
 	
 .logo-center {
  height: 60%;
@@ -277,7 +285,7 @@ a, button { cursor: pointer; }
 
 </head>
 <body>  
- 
+ <div class="full-screen"></div>
    <audio id="musique-fond" src="mp3001.mp3" preload="auto" loop></audio>
 <button id="stop-musique" class="musique-btn">▶️</button>
 
