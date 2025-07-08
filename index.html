@@ -239,17 +239,7 @@ a, button { cursor: pointer; }
   width: 27.9%;
   z-index: -2;
 }
-	.full-screen {
-		position:fixed; top:0px; left:0px;
-      background-image: url('fullscreen.png'); /* Remplace par le chemin réel */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      width: 100vw;
-      height: 100vh; z-index:-2;
-     /* Centre l'image */
-  background-attachment: fixed; 
-    }
+
 	
 .logo-center {
  height: 60%;
@@ -288,7 +278,16 @@ a, button { cursor: pointer; }
 
 </head>
 <body>  
- <div class="full-screen"></div>
+ <img src="fullscreen.png" alt="SAK-Transit" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  z-index: -2;
+">
+
    <audio id="musique-fond" src="mp3001.mp3" preload="auto" loop></audio>
 <button id="stop-musique" class="musique-btn">▶️</button>
 
