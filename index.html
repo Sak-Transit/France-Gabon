@@ -235,7 +235,7 @@ a, button { cursor: pointer; }
   position: fixed; border-radius:8px;
         right: 0px;
   top: 10%;
-  height: calc(100% - 10%);
+  height: calc(101% - 10%);
   width: 27.9%;
   z-index: -2;
 }
@@ -245,7 +245,7 @@ a, button { cursor: pointer; }
       top: 0;
       left: 0;
       width: 100vw;
-      aspect-ratio: 29 / 13; /* applique ton format réel */
+      aspect-ratio: 29 / 14; /* applique ton format réel */
       z-index: -2;
       overflow: hidden;
     }
@@ -1129,7 +1129,7 @@ slideGroups.forEach(slider => {
     top: 10%;
     left: 0%; /* ✅ Assure qu'il soit complètement caché */
     width: 27%;
-    height: 87.3%;
+    height: calc(101% - 10%);
     background-color: rgba(0, 0, 0, 0.3);
     box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
     transition: left 0.3s ease-in-out;
